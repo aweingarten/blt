@@ -365,7 +365,7 @@ class RoboFile extends Tasks implements LoggerAwareInterface {
   }
 
   /**
-   * Sniffs BLT internal code via PHPCS, and PHPStan.
+   * Sniffs BLT internal code via PHPCS.
    *
    * @command sniff-code
    */
@@ -373,7 +373,6 @@ class RoboFile extends Tasks implements LoggerAwareInterface {
     $task = $this->taskExecStack()
       ->dir($this->bltRoot)
       ->exec("{$this->bin}/phpcs")
-      ->exec("{$this->bin}/phpstan")
       ->exec("composer validate");
     $result = $task->run();
 
